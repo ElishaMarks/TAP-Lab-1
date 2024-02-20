@@ -1,18 +1,24 @@
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        // Exemplu de text
-        String text = "Azi Stanislav a prins o muscă lungă de 10 mm.";
+        // Citim textul de la utilizator
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceți textul: ");
+        String userText = scanner.nextLine();
 
         // Crearea și inițializarea obiectului pentru prelucrarea șirurilor
-        StringProcessor stringProcessor = new StringProcessor(text);
+        StringProcessor stringProcessor = new StringProcessor(userText);
 
-        // Obținerea primului subșir cu lungime maximă, care nu conține litere
+        // Obținerea primului subșir cu lungime maximă, care nu conține litere, spații și semne de punctuație
         String result = stringProcessor.extractMaxNonLetterSubString();
 
         // Afișarea rezultatului
         System.out.println("Primul subșir cu lungime maximă, care nu conține litere, spații și semne de punctuație: " + result);
+
+        // Închidem scanner-ul
+        scanner.close();
     }
 }
 
